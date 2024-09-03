@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Public Sans", sans-serif;
+}
+
+/* Common */
+.container {
+    width: 1140px;
+    max-width: calc(100% - 48px);
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Header */
+.header-top {
+    margin-top: 28px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.logo__title {
+    color: #000;
+    font-weight: 600;
+    font-size: 1.8rem;
+}
