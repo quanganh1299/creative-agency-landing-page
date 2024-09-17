@@ -3,6 +3,11 @@
 }
 
 :root {
+    --primary-color: #143c3c;
+    --text-color-black: #152427;
+    --text-color-white: #fff;
+    --text-color-gray: #575d5e;
+    --text-color-light-gray: #7d8188;
 }
 
 html {
@@ -11,7 +16,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: "Public Sans", sans-serif;
+    font-family: "Poppins", "Public Sans", sans-serif;
 }
 
 /* Common */
@@ -33,9 +38,68 @@ button {
     font-size: inherit;
 }
 
+.btn {
+    min-width: 173px;
+    height: 57px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    border-radius: 40px;
+    border: 1.5px solid var(--primary-color);
+    color: var(--text-color-white);
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.section-heading {
+    font-family: inherit;
+    font-size: 4.2rem;
+    color: var(--text-color-black);
+    font-weight: 600;
+    line-height: 1.24;
+}
+
+.section-desc {
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.71;
+    color: var(--text-color-light-gray);
+}
+
 /* Header */
+.header {
+    font-family: "Public Sans", sans-serif;
+}
+
 .header-top {
     margin-top: 28px;
+    padding-bottom: 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.header-top::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        #fff 0%,
+        #dddcdc 51.09%,
+        rgba(212, 212, 212, 0) 99.68%
+    );
 }
 
 .logo {
@@ -48,4 +112,159 @@ button {
     color: #000;
     font-weight: 600;
     font-size: 1.8rem;
+}
+
+.navbar {
+    margin: 0 88px 0 auto;
+}
+
+.navbar__list {
+    display: flex;
+}
+
+.navbar__link {
+    padding: 16px 19px 30px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text-color-gray);
+}
+
+.navbar__link:hover {
+    color: var(--text-color-black);
+}
+
+.navbar__link--active {
+    color: var(--text-color-black);
+    position: relative;
+    z-index: 1;
+}
+
+.navbar__link--active::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 19px;
+    bottom: 0;
+    background: var(--primary-color);
+    width: 16px;
+    height: 2px;
+}
+
+.hero {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.hero__content {
+    width: 34.5%;
+}
+
+.hero__heading {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-right: 25px;
+}
+
+.hero__desc {
+    margin-top: 20px;
+    font-size: 1.8rem;
+}
+
+.hero__row {
+    display: flex;
+    margin-top: 42px;
+}
+
+.hero__play {
+    display: flex;
+    align-items: center;
+    margin-left: 36px;
+    cursor: pointer;
+}
+
+.hero__play:hover .hero__play-icon svg:last-child {
+    transform: translateX(3px);
+    opacity: 0.85;
+}
+
+.hero__play-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 37px;
+    position: relative;
+    transition: 0.25s;
+}
+
+.hero__play-icon svg:last-child {
+    position: absolute;
+    left: 7px;
+    transition: 0.25s;
+}
+
+.hero__play-content {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.67;
+    color: var(--text-color-black);
+}
+
+.hero__media {
+    width: 56.7%;
+    margin-left: 76px;
+    position: relative;
+}
+
+.hero__images {
+    display: flex;
+    column-gap: 20px;
+    position: relative;
+}
+
+.hero__media::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 340px;
+    background: #4dbb9a;
+    filter: blur(137px);
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 122px;
+    bottom: 0;
+    margin: auto;
+}
+
+.hero__img {
+    width: 202px;
+    height: 466px;
+    object-fit: cover;
+}
+
+.hero__img:nth-child(2) {
+    margin-top: 77px;
+}
+
+.hero__abstract {
+    position: absolute;
+    bottom: 214px;
+    right: 273px;
+    z-index: 1;
+}
+
+.hero__abstract svg:first-child {
+    position: absolute;
+    top: 2px;
+    left: -46px;
+}
+
+.hero__abstract--down {
+    transform: rotate(180deg);
+    right: 45px;
+    bottom: -88px;
 }
