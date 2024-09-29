@@ -674,7 +674,9 @@
             <section class="project">
                 <div class="container">
                     <section class="project__content">
-                        <h2 class="section-heading section-heading--line project__heading">
+                        <h2
+                            class="section-heading section-heading--line project__heading"
+                        >
                             A quick glance of our past projects
                         </h2>
                         <div class="project__detail">
@@ -684,7 +686,9 @@
                                 things.
                             </p>
                             <div class="project__link">
-                                <span>Browse all Projects</span>
+                                <span class="project__link-content"
+                                    >Browse all Projects</span
+                                >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="22"
@@ -703,9 +707,173 @@
                             </div>
                         </div>
                     </section>
-                    <figure class="project__media"></figure>
+                    <figure class="project__media">
+                        <video
+                            class="project__video"
+                            poster="./assets/img/project.png"
+                            id="video"
+                            controls
+                        >
+                            <source
+                                src="./assets/video/meeting.mp4"
+                                type="video/mp4"
+                            />
+                            Your browser does not support the video tag.
+                        </video>
+                        <button class="project__play-btn" id="play">
+                            <svg
+                                width="27"
+                                height="30"
+                                viewBox="0 0 27 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="project__play-icon"
+                            >
+                                <path
+                                    d="M25.5828 14.1411C26.2513 14.5227 26.256 15.485 25.5912 15.8731L1.65877 29.8459C0.993978 30.2341 0.158321 29.757 0.154581 28.9872L0.0199589 1.2747C0.0162194 0.50491 0.847206 0.0197453 1.51573 0.401403L25.5828 14.1411Z"
+                                    fill="white"
+                                />
+                            </svg>
+                        </button>
+                        <button class="project__pause-btn" id="pause">
+                            <svg
+                                class="project__pause-icon"
+                                width="27"
+                                height="30"
+                                viewBox="0 0 27 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <rect
+                                    x="3"
+                                    y="0"
+                                    width="8"
+                                    height="30"
+                                    fill="white"
+                                />
+                                <rect
+                                    x="16"
+                                    y="0"
+                                    width="8"
+                                    height="30"
+                                    fill="white"
+                                />
+                            </svg>
+                        </button>
+                    </figure>
                 </div>
             </section>
+
+            <!-- Features -->
+            <section class="feature">
+                <div class="container">
+                    <header class="feature__header">
+                        <h2 class="section-heading">
+                            Share the features that help your customers
+                        </h2>
+                        <p class="section-desc">
+                            You already know that the customer experience
+                            doesn't end with a sale — it's an ongoing work in
+                            progress that companies should be constantly seeking
+                            to improve and iterate on.
+                        </p>
+                    </header>
+                    <div class="feature__list">
+                        <!-- Feature item 1 -->
+                        <article class="feature__item">
+                            <img
+                                src="./assets/icons/feature-blog-icon.svg"
+                                class="feature__icon"
+                                alt=""
+                            />
+                            <h3 class="feature__item-heading">Blog</h3>
+                            <p class="feature__item-desc">
+                                We’ve researched numerous agencies and complied
+                                a list of digital marketing agency blogs you
+                                should read to stay ahead of your rivals and
+                                succeed online!
+                            </p>
+                        </article>
+                        <!-- Feature item 2 -->
+                        <article class="feature__item">
+                            <img
+                                src="./assets/icons/feature-documention-icon.svg"
+                                class="feature__icon"
+                                alt=""
+                            />
+                            <h3 class="feature__item-heading">Documention</h3>
+                            <p class="feature__item-desc">
+                                In this article, we discuss the different types
+                                of documentation, what makes for great technical
+                                documentation, and provide examples.
+                            </p>
+                        </article>
+                        <!-- Feature item 3 -->
+                        <article class="feature__item">
+                            <img
+                                src="./assets/icons/feature-customer-icon.svg"
+                                class="feature__icon"
+                                alt=""
+                            />
+                            <h3 class="feature__item-heading">Customers</h3>
+                            <p class="feature__item-desc">
+                                Your customers have high expectations — and if
+                                your business can't meet them, they're going to
+                                leave you for your competitors.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog -->
+            <section class="blog">
+                <div class="container"></div>
+            </section>
         </main>
+        <script>
+            const video = document.querySelector("#video");
+            const playButton = document.querySelector("#play");
+            const pauseButton = document.querySelector("#pause");
+
+            pauseButton.style.display = "none";
+
+            const showPauseButton = () => {
+                playButton.style.display = "none";
+                pauseButton.style.display = "flex";
+            };
+
+            const showPlayButton = () => {
+                playButton.style.display = "flex";
+                pauseButton.style.display = "none";
+            };
+
+            playButton.addEventListener("click", () => {
+                video.play();
+                showPauseButton();
+            });
+
+            video.addEventListener("pause", showPlayButton);
+
+            video.addEventListener("play", showPauseButton);
+
+            video.addEventListener("mouseenter", () => {
+                if (!video.paused) {
+                    pauseButton.style.display = "flex";
+                }
+            });
+
+            video.addEventListener("mouseleave", () => {
+                pauseButton.style.display = "none";
+            });
+
+            pauseButton.addEventListener("click", () => {
+                video.pause();
+            });
+
+            pauseButton.addEventListener("mouseenter", () => {
+                pauseButton.style.display = "flex";
+            });
+        </script>
     </body>
 </html>
